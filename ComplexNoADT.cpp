@@ -15,6 +15,8 @@ public:
 	ComplexNumber& operator++();
 	ComplexNumber operator++(int);
 	ComplexNumber operator+(int);
+	bool operator==(ComplexNumber&);
+	bool operator!=(ComplexNumber&);
 };
 # endif
 
@@ -89,4 +91,12 @@ ComplexNumber ComplexNumber::operator+(int val)
 	sum.real_part = real_part + val;
 	sum.imaginary_part = imaginary_part + val;
 	return sum;
+}
+bool ComplexNumber::operator==(ComplexNumber& compNum)
+{
+	return (real_part == compNum.real_part && imaginary_part == compNum.imaginary_part) ? true : false;
+}
+bool ComplexNumber::operator!=(ComplexNumber& compNum)
+{
+	return (*this == compNum) ? false : true;
 }
